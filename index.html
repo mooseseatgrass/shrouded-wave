@@ -6,24 +6,29 @@
     <title>Shrouded-Wave</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='index.css'>
-    <script src='index.js'></script>
+
+    <!-- Fontawesome icons -->
+    <script src="https://kit.fontawesome.com/ce299d731e.js" crossorigin="anonymous"></script>
+    
 </head>
 <header>Shrouded Wave</header>
 <body>
  
 <div class="box">
-  <form action="mainpage.html"><!-- a link to the mainpage -->
+  <form action="mainpage.html" id="form"><!-- a link to the mainpage -->
 <div class="head">
  <h2>Create Account</h2>
     <label class="uname">Username:</label><br>
-    <input type="text" placeholder="Ghostwill20" value=""><br><!-- user input name -->
+      <input type="text" placeholder="Ghostwill20" value=""><br><!-- user input name -->
     <label class="num">Number:</label><br><!-- user number required for login -->
-    <input type="number" placeholder="xxx-xxx-xxxx" value=""><br><br>
-    <button>Sign In</button> <!-- when this button is clicked it will take you the home page -->
+      <input type="text" placeholder="xxx-xxx-xxxx" id="phonenumber"><br><br>
+      <small></small>
+    <button>Submit</button> <!-- when this button is clicked it will take you the home page -->
 </div>       
   </form>
 </div>
 
+<script src='index.js'></script>
+
 </body>
 </html>
-m
