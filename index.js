@@ -1,7 +1,8 @@
 //Validate Phone Number
 
 //get phone number input from html
-const phoneNumber = document.getElementById('insert id from html');
+const form = document.getElementById('form');
+const phoneNumber = document.getElementById('phonenumber');
 
 //listens for form to be submitted & prevents default reload. may not be needed depending on whether we use <form> in html
 form.addEventListener('submit' , (e) => {
@@ -20,10 +21,10 @@ function checkInputs() {
     } else if (!isPhoneNumber(phoneNumberValue)){
         setErrorFor(phoneNumber, 'Phone number is not valid');
     } else {
-        setSuccessFor(phoneNumber);
+        setSuccessFor(phoneNumber, 'number');
     }
         //add success class
-        setSuccessFor(phoneNumber);
+        setSuccessFor(phoneNumber, 'number');
     }
 
 function setErrorFor(input, message) {
@@ -34,12 +35,12 @@ function setErrorFor(input, message) {
     small.innerText = message;
 
     //add error class
-    formControl.className = 'class name error';
+    formControl.className = 'form-control error';
 }
 
 function setSuccessFor(input) {
     const formControl = input.parentElement;
-    formControl.className = 'class name success';
+    formControl.className = 'form-control success';
 }
 
 function isPhoneNumber(phoneNumber) {
