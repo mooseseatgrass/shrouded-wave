@@ -1,22 +1,41 @@
+  
 header {
-   font-size: 500%; 
-   text-align: center;
+    font-size: 500%; 
+    text-align: center;
+ }
+ 
+ body {
+     margin: 0;
+     padding: 0;
+     background-color: gray;
+ }
+ .box {
+ width: 280px;
+ position:absolute ;
+ top: 50%;
+ left:50% ;
+ transform: translate(-50%, -50%);
+ color: white;
+ }
+ .box h2 {
+     font-size: 50px;
+ 
+ }
+
+ .head input:focus {
+	outline: 0;
+	border-color: pink;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    background-color: gray;
+ /* Error Message */
+.form small {
+	color: #e74c3c;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	visibility: hidden;
 }
-.box {
-width: 280px;
-position:absolute ;
-top: 50%;
-left:50% ;
-transform: translate(-50%, -50%);
-color: white;
-}
-.box h2 {
-    font-size: 50px;
 
+.form.error small {
+	visibility: visible;
 }
