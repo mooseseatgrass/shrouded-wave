@@ -1,0 +1,24 @@
+{
+  "name": "cbc-8",
+  "version": "1.0.0",
+  "description": "add mySQL",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mooseseatgrass/shrouded-wave.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mooseseatgrass/shrouded-wave/issues"
+  },
+  "homepage": "https://github.com/mooseseatgrass/shrouded-wave#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {}
+}
