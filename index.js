@@ -1,3 +1,8 @@
+// Validate name
+  function myValidation() {
+    let myValue = document.querySelector('')
+}
+  
 //Validate Phone Number
 
 //Get info from html
@@ -49,3 +54,4 @@ function isPhoneNumber(phoneNumber) {
     //this regex will validate [1]-[123]-[123]-[1234] with or without dashes, & with or without first digit
     return /^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]\d{4}$/.test(phoneNumber);
 }};
+
