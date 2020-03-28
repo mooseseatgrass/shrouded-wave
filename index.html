@@ -6,23 +6,30 @@
     <title>Shrouded-Wave</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='index.css'>
-    <script src='index.js'></script>
+
+    <!-- Fontawesome icons -->
+    <script src="https://kit.fontawesome.com/ce299d731e.js" crossorigin="anonymous"></script>
+    
 </head>
+<header>Shrouded Wave</header>
 <body>
-    <h1>Shrouded Wave</h1>
-    <div>
-<ul>
- <li> Username         <input type></li>  
-  <li>Email            <input></li>  
-  <li>Password         <input></li>  
-  <li>Password Check   <input></li> 
-</ul>
+ 
+<div class="box">
+<div class="head">
+  
+ <h2>Create Account</h2>
+    <label class="firstName">First Name:</label><br>
+      <input type="text" placeholder="Carlos" value="" onfocusout="validateFirstName"><br><!-- user input name -->
+    <label class="lastName">Last Name:</label><br>
+      <input type="text" placeholder="Williams" value="" onfocusout="validateLastName"><br><!-- user input name -->
+    <label class="num">Number:</label><br><!-- user number required for login -->
+      <input type="text" placeholder="xxx-xxx-xxxx" value="" id="phonenumber"><br><br>
+    <button id="submit">Submit</button>
+
+</div>       
 </div>
 
-<input type="text" name="" id="form" placeholder="submit information">
-<button onclick="myValation()">Submit</button>
-</body></input>
+<script src='index.js'></script>
 
 </body>
 </html>
-
