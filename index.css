@@ -4,25 +4,25 @@ header {
     text-align: center;
  }
  
- body {
+body {
      margin: 0;
      padding: 0;
      background-color: gray;
  }
- .box {
- width: 280px;
+.box {
+ width: 500px;
  position:absolute ;
  top: 50%;
  left:50% ;
  transform: translate(-50%, -50%);
  color: white;
  }
- .box h2 {
+.box h2 {
      font-size: 50px;
  
  }
 
- .head input:focus {
+.head input:focus {
 	outline: 0;
 	border-color: pink;
 }
