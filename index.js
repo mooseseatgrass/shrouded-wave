@@ -3,6 +3,7 @@
 //Get info from html
 const form = document.getElementById('form');
 const phoneNumber = document.getElementById('phonenumber');
+const submit = document.getElementById('submit');
 
 //Button Event Listener Function
 form.addEventListener('submit' , (e) => {
@@ -37,12 +38,12 @@ function setErrorFor(input, message) {
     small.innerText = message;
 
     //add error class
-    formControl.className = 'box error';
+    formControl.className = 'form error';
 }
 
 function setSuccessFor(input) {
     const formControl = input.parentElement;
-    formControl.className = 'box success';
+    formControl.className = 'form success';
 }
 
 function isPhoneNumber(phoneNumber) {
