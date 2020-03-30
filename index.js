@@ -146,19 +146,19 @@ function setErrorFor(input, message) {
 //display success message to user
 //GREEN added in CSS
 function setSuccessFor(input, message) {
-    const formControl2 = input.parentElement;
-    const small2 = formControl2.querySelector('small');
+    const formControl = input.parentElement;
+    const small = formControl.querySelector('small');
 
     //display success message user side
-    small2.innerText = message;
+    small.innerText = message;
 
     //add success class for styling in css
-    formControl2.className = 'form success';
+    formControl.className = 'form success';
 }
 
 function validatePhone(phoneNumber) {
     //regex
     return /^(?:\+?1[-. ]?)?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(phoneNumber);
 }}
-}
+// }
 ;
