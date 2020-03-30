@@ -112,7 +112,7 @@ form.addEventListener('submit' , (e) => {
        
     //Validate input
     checkInputs();
- 
+
 });
 
 //Check phone number input
