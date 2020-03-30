@@ -1,4 +1,3 @@
-
 //Venus
 // Validate first / last name / nothings red but can not tell if works//;
 
@@ -120,7 +119,7 @@ form.addEventListener('submit' , (e) => {
 function checkInputs() {
     const phoneNumberValue = phoneNumber.value.trim();
 
-    //Input Errors
+    //Validation Errors & Success
     if(phoneNumberValue == "") {
         setErrorFor(phoneNumber, 'Phone number cannot be blank');
     } else if (!validatePhone(phoneNumberValue)){
@@ -132,7 +131,7 @@ function checkInputs() {
         form.reset();
     }
 
-    //display error message in RED to user
+//display error message in RED to user
 function setErrorFor(input, message) {
     const formControl = input.parentElement;
     const small = formControl.querySelector('small');
@@ -154,10 +153,12 @@ function setSuccessFor(input, message) {
     small2.innerText = message;
 
     //add success class for styling in css
-    formControl2.classname = 'form success';
+    formControl2.className = 'form success';
 }
 
 function validatePhone(phoneNumber) {
     //regex
     return /^(?:\+?1[-. ]?)?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(phoneNumber);
-}};
+}}
+// }
+;
