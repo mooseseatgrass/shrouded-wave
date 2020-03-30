@@ -24,19 +24,41 @@ font-size: 50px;
 
 .head input:focus {
 	outline: 0;
-	border-color: pink;
+	border-color: #777;
 }
 
- /* Error Message */
+ /* Input Messages */
 .form small {
+<<<<<<< HEAD
+	color: #000;
+	background-color: #efefef;
+=======
 	color: #e74c3c;
 	/* background-color: #efefef; */
+>>>>>>> 7bf90aee791e15ca73e1733820db24e641f29e48
 	position: absolute;
-	bottom: 0;
-	left: 0;
 	visibility: hidden;
 }
 
+/* Error Message */
 .form.error small {
+	color: red;
+	background-color: efefef;
 	visibility: visible;
 }
+
+.form.error input {
+	border-color: #e74c3c;
+}
+
+/* Success Message */
+.form.success small {
+	color: #2ecc71;
+	background-color: #efefef;
+	visibility: visible;
+}
+
+.form.success input{
+	border-color: #2ecc71;
+}
+
