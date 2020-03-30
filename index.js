@@ -1,3 +1,4 @@
+//Venus
 // Validate first / last name / nothings red but can not tell if works//;
 
       //Input fields
@@ -18,7 +19,7 @@
           //prevent defauts
         event.preventDefault();
         if(
-            valadateFirstName() && 
+            validateFirstName() && 
             validateLastName()
         )
         const name =firstName.value;
@@ -96,7 +97,8 @@
     }  
 
     }
-//------------------------------
+//------------------------------*/
+//Lexie
 //Validate Phone Number
 
 //Get info from html
@@ -108,10 +110,11 @@ form.addEventListener('submit' , (e) => {
     e.preventDefault();
 
     //clear form after submission
-    form.reset();
-
+    // form.reset();
+       
     //Validate input
     checkInputs();
+ 
 });
 
 //Check phone number input
@@ -119,12 +122,15 @@ function checkInputs() {
     const phoneNumberValue = phoneNumber.value.trim();
 
     //Input Errors
-    if(phoneNumberValue === '') {
+    if(phoneNumberValue == "") {
         setErrorFor(phoneNumber, 'Phone number cannot be blank');
-    } else if (!isPhoneNumber(phoneNumberValue)){
+    } else if (!validatePhone(phoneNumberValue)){
         setErrorFor(phoneNumber, 'Phone number is not valid');
+        console.log(phoneNumberValue + " not valid");
     } else {
-        setSuccessFor(phoneNumber);
+        document.getElementById('success').innerText = "Your phone number has been received.";
+        console.log(phoneNumberValue);
+        form.reset();
     }
 
     //display error message to user
@@ -136,15 +142,12 @@ function setErrorFor(input, message) {
     small.innerText = message;
 
     //add error class
-    formControl.className = 'box error';
+    formControl.className = 'form error';
 }
 
-function setSuccessFor(input) {
-    const formControl = input.parentElement;
-    formControl.className = 'box success';
-}
-
-function isPhoneNumber(phoneNumber) {
-    //this regex will validate [1]-[123]-[123]-[1234] with or without dashes, & with or without first digit
-    return /^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]\d{4}$/.test(phoneNumber);
+function validatePhone(phoneNumber) {
+    //regex
+    return /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[01-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/.test(phoneNumber);
 }};
+    //old regex didn't work as expected
+    ///^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]\d{4}$/.test(phoneNumber);

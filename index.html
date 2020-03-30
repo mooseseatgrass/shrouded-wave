@@ -8,7 +8,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='index.css'>
 
     <!-- Fontawesome icons -->
-    <script src="https://kit.fontawesome.com/ce299d731e.js" crossorigin="anonymous"></script>
+    <!--<script src="https://kit.fontawesome.com/ce299d731e.js" crossorigin="anonymous"></script>-->
     
 </head>
 <header>Shrouded Wave</header>
@@ -16,7 +16,7 @@
  
 <div class="box">
 <div class="head">
-  
+  <form id="form">
  <h2>Create Account</h2>
     <label class="firstName">First Name:</label><br>
       <input type="text" placeholder="Carlos" value="" onfocusout="validateFirstName"><br><!-- user input name -->
@@ -24,8 +24,11 @@
       <input type="text" placeholder="Williams" value="" onfocusout="validateLastName"><br><!-- user input name -->
     <label class="num">Number:</label><br><!-- user number required for login -->
       <input type="text" placeholder="xxx-xxx-xxxx" value="" id="phonenumber"><br><br>
-    <button id="submit">Submit</button>
-
+      <!-- Submit Button -->
+      <button type="submit" id="submit">Submit</button>
+      <br><br>
+      <small id="success"></small>
+  </form>
 </div>       
 </div>
 
