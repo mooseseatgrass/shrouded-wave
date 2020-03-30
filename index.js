@@ -1,4 +1,4 @@
-// Validate first / last name / nothings red but can not tell if works//;
+/*// Validate first / last name / nothings red but can not tell if works//;
 
       //Input fields
     const firstName = document.getElementById("firstName").value;
@@ -18,7 +18,7 @@
           //prevent defauts
         event.preventDefault();
         if(
-            valadateFirstName() && 
+            validateFirstName() && 
             validateLastName()
         )
         const name =firstName.value;
@@ -96,7 +96,8 @@
     }  
 
     }
-//------------------------------
+//------------------------------*/
+
 //Validate Phone Number
 
 //Get info from html
@@ -120,9 +121,11 @@ function checkInputs() {
     const phoneNumberValue = phoneNumber.value.trim();
 
     //Input Errors
-    if(phoneNumberValue === '') {
+    if(phoneNumberValue === '' ) {
         setErrorFor(phoneNumber, 'Phone number cannot be blank');
-    } else if (!isPhoneNumber(phoneNumberValue)){
+    } else if (phoneNumberValue.length != 10){
+        setErrorFor(phoneNumber, 'Phone number must contain at least 10 digits');
+    } if (!isPhoneNumber(phoneNumberValue)){
         setErrorFor(phoneNumber, 'Phone number is not valid');
     } else {
         setSuccessFor(phoneNumber);
