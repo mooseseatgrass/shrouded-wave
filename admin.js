@@ -6,8 +6,8 @@ const bodyparser = require('body-parser');
 
 app.use(bodyparser.json());
 
-// Username:   jgy4kfpqhzeplmwl     Password:   nal168vbk5cgeq50
-// Port:  3306    Database:   b0j93g47mct78nva
+// Username:   jgy4kfpqhzeplmwl      Password:   nal168vbk5cgeq50
+// Port:  3306     Database:   b0j93g47mct78nva
 var mysqlConnection = mysql.createConnection({
   // host : 'localhost',
       host : 'mysql://jgy4kfpqhzeplmwl:nal168vbk5cgeq50@mgs0iaapcj3p9srz.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/b0j93g47mct78nva',
