@@ -1,16 +1,17 @@
 const mysql = require('mysql');
 const express = require('express');
+const bodyparser = require('body-parser');
 //express required as dependency in package.json but does not seem to be installed in the node_modules folder.
 const app = express();
 const port = 3306;
-const bodyparser = require('body-parser');
+
 //body-parser required as dependency in package.json but does not seem to be installed in the node_modules folder.
 app.use(bodyparser.json());
 
 // Username:   jgy4kfpqhzeplmwl     Password:   nal168vbk5cgeq50
 // Port:  3306    Database:   b0j93g47mct78nva
 var mysqlConnection = mysql.createConnection({
-      host : 'localhost',
+      host : 'mgs0iaapcj3p9srz.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
       user : 'jgy4kfpqhzeplmwl',
   password : 'nal168vbk5cgeq50',
   database : 'b0j93g47mct78nva'
@@ -23,7 +24,6 @@ mysqlConnection.connect((err) => {
   console.log ('DB connection failed \n Error : ' + JSON.stringify(err, undefined, 2));
 })
 
-app.listen(port, () => console.log(`Express server is running on port ${port}`));
 
 // Show in CLI:
 app.get('/employees',(res,req) => {
@@ -36,7 +36,7 @@ app.get('/employees',(res,req) => {
     else
     console.log(err);
   })
-}) 
+}); 
 
 // Show in browser:
 app.get('/employees',(req,res) => {
@@ -46,4 +46,6 @@ app.get('/employees',(req,res) => {
     else
     console.log(err);
   })
-})
+});
+
+mysqlConnection.end();
