@@ -8,7 +8,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='index.css'>
 
     <!-- Fontawesome icons -->
-    <!--<script src="https://kit.fontawesome.com/ce299d731e.js" crossorigin="anonymous"></script>-->
+    <script src="https://kit.fontawesome.com/ce299d731e.js" crossorigin="anonymous"></script>
     
 </head>
 <header>Shrouded Wave</header>
@@ -19,23 +19,49 @@
   <form id="form">
     <div class="form-control">
       <h2>Create Account</h2>
-          <label class="firstName">First Name:</label><br>
+          <!--<label class="firstName">First Name:</label><br>
             <input type="text" placeholder="Carlos" value="" onfocusout="validateFirstName"><br><!-- user input name -->
-          <label class="lastName">Last Name:</label><br>
+          <!--<label class="lastName">Last Name:</label><br>
             <input type="text" placeholder="Williams" value="" onfocusout="validateLastName"><br><!-- user input name -->
-          <label class="num">Number:</label><br><!-- user number required for login -->
-            <input type="text" placeholder="xxx-xxx-xxxx" value="" id="phonenumber"><br><br>
-            <!-- Submit Button -->
-            <button type="submit" id="submit">Submit</button>
-            <br><br>
-            <small></small>
+<!-- Remove below this -->
+          <!-- Lexie - First Name -->
+          <div class="form-control">
+            <label class="name">First Name:</label><br>
+            <input type="text" placeholder="Jane" value="" id="fname">
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small></small>
+          </div>
+            <!-- Lexie - Last Name -->
+          <div class="form-control">
+            <label class="name">Last Name:</label><br>
+            <input type="text" placeholder="Doe" value="" id="lname">
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small></small>
+          </div>
+<!-- Remove above this -->
+          <div class="form-control">
+            <label class="num">Number:</label><br><!-- user number required for login -->
+              <input type="text" placeholder="xxx-xxx-xxxx" value="" id="phonenumber">
+              <!-- Success and Error Icons -->
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+              <small></small>
+              <!-- Submit Button -->
+              <br><br>
+          <button type="submit" id="submit">Submit</button>
+          </div>
     </div>
+    
   </form>
 </div>       
 </div>
 
+<script src='phone.js'></script>
 <script src='admin.js'></script>
 <script src='index.js'></script>
+
 
 </body>
 </html>
