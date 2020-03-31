@@ -21,13 +21,21 @@ function checkInputs() {
     const lNameValue = lName.value.trim();
     const phoneNumberValue = phoneNumber.value.trim();
 
+    //this is something i'm playing with to make it so all fields must be filled out in order to submit the form.
+    //require all fields to be filled out
+    // if(fNameValue == "" || lNameValue == "" || phoneNumberValue == "") {
+    //   setErrorFor(form, 'Please fill out all fields.')
+    // } else {
+    //   setSuccessFor(form, "");
+    // }
+
     //First Name Validation
     if(fNameValue === "") {
         setErrorFor(fName, 'First name cannot be blank');
     } else {
         setSuccessFor(fName, 'Success fName');
         console.log(fNameValue);
-        form.reset();
+        // form.reset();
     };
 
     //Last Name Validation
@@ -36,7 +44,7 @@ function checkInputs() {
     } else {
         setSuccessFor(lName, 'Success lName');
         console.log(lNameValue);
-        form.reset();
+        // form.reset();
     };
 
 
@@ -49,7 +57,7 @@ function checkInputs() {
     } else if (validatePhone(phoneNumberValue)) {
         setSuccessFor(phoneNumber, 'Success Phone!');
         console.log(phoneNumberValue);
-        form.reset();
+        // form.reset();
     };
 
 //display error message in RED to user
