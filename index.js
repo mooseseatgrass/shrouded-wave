@@ -1,101 +1,83 @@
-/*//Venus
-// Validate first / last name / nothings red but can not tell if works//;
+//Get form input from user/html
+const form = document.getElementById('form');
+const fName = document.getElementById('fname');
+const lName = document.getElementById('lname');
+const phoneNumber = document.getElementById('phonenumber');
 
-      //Input fields
-      const firstName = document.getElementById("firstName").value;
+//Listen for Button to be submitted
+form.addEventListener('submit' , (e) => {
+    e.preventDefault();
+       
+    //Validate field input
+    checkInputs();
 
-      const lastName = document.getElementById("lastName").value;
-  
-      const error_message = document.getElementById("error_message");
-      
-        //Form
-      const form = document.getElementById("form");
-  
-        //Validation Colors (names)~would like to use for client side validation //
-        //const green = "green";
-        //const red = "red";
-      
-      form.addEventListener("submit"), function(event){
-            //prevent defauts
-          event.preventDefault();
-          if(
-              validateFirstName() && 
-              validateLastName()
-          )
-          const name =firstName.value;
-          const container = document.querySelector("div.container");
-          
-      }
-              //Validators
-          function validateFirstName(){
-            //check if empty//
-          if(checkIfEmpty(firstName)) return;
-            //check if only letters//
-          if(!checkIfOnlyLetters(firstName)) return;
-            //if only has letters
-          return true;
-          } 
-          function validateLastName(){
-              //check if empty//
-              if(checkIfEmpty(lastName)) return;
-              //check if only letters//
-              if(!checkIfOnlyLetters(lastName)) return;
-              //if only has letters
-              return true;  
-          }
-              //Utility Functions - used across multiple components 
-            //field invalid////else field valid//
-          function checkIfEmpty(field){
-          if(isEmpty(field.value.trim())) {
-                //set invalid 
-          setInvalid(field, `${field.name} can not be empty`);
-          return true;  
-            //set valid
-          } else {
-              setValid(field);
-              return false;
-          }
-      }
-          function isEmpty(value){
-              if(value === '') return true;
-              return false;
-          }
-          
-          function setInvalid(field, message) {
-              field.className = 'invalid';
-              field.nextElementSibling.innerHTML = message;
-         // field.nextElementSibling.style.color = red; 
-      }
-          function setValid(field) {
-              field.className = 'valid';
-              field.nextElementSibling.innerHTML = '';
-         // field.nextElementSibling.style.color = green; //
-      }
-  
-      function checkIfOnlyLettersNoSymbols(field) {
-          if(/^[a-zA-Z ]+$/.test(field.value)){
-              setValid(field);
-              return true;
-  
-          } else {
-              setInvalid(field, `${field.name} only letters no symbols`);
-              return false;
-          }
-  
-      }function lengthOfFirstName(field) {
-          if(firstname.length < 2) {
-          text = "Please Enter Valid First Name";
-          error_message.innerHTML = text;
-          return false;  
-      }
-  
-      function lengthOfLastName(field) {
-          if(lastname.length < 2) {
-          text = "Please Enter Valid Last Name";
-          error_message.innerHTML = text;
-          return false;
-      }  
-  
-      }}
-      */
- 
+});
+
+//checkInputs function
+function checkInputs() {
+
+    //trim spaces off front & end of input
+    const fNameValue = fName.value.trim();
+    const lNameValue = lName.value.trim();
+    const phoneNumberValue = phoneNumber.value.trim();
+
+    //First Name Validation
+    if(fNameValue === "") {
+        setErrorFor(fName, 'First name cannot be blank');
+    } else {
+        setSuccessFor(fName, 'Success fName');
+        console.log(fNameValue);
+        form.reset();
+    };
+
+    //Last Name Validation
+    if(lNameValue === "") {
+        setErrorFor(lName, 'Last name cannot be blank');
+    } else {
+        setSuccessFor(lName, 'Success lName');
+        console.log(lNameValue);
+        form.reset();
+    };
+
+
+    //Phone # Validation Errors & Success
+    if(phoneNumberValue === "") {
+        setErrorFor(phoneNumber, 'Phone number cannot be blank');
+    } else if (!validatePhone(phoneNumberValue)){
+        setErrorFor(phoneNumber, 'Phone number is not valid');
+        console.log(phoneNumberValue + " not valid");
+    } else if (validatePhone(phoneNumberValue)) {
+        setSuccessFor(phoneNumber, 'Success Phone!');
+        console.log(phoneNumberValue);
+        form.reset();
+    };
+
+//display error message in RED to user
+function setErrorFor(input, message) {
+    const formControl = input.parentElement;
+    const small = formControl.querySelector('small');
+
+    //display error message user side
+    small.innerText = message;
+
+    //add error class to style message in css
+    formControl.className = 'form error';
+}
+
+//display success message to user
+//GREEN added in CSS
+function setSuccessFor(input, message) {
+    const formControl = input.parentElement;
+    const small = formControl.querySelector('small');
+
+    //display success message user side
+    small.innerText = message;
+
+    //add success class for styling in css
+    formControl.className = 'form success';
+}
+
+function validatePhone(phoneNumber) {
+    //regex
+    return /^(?:\+?1[-. ]?)?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(phoneNumber);
+}};
