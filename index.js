@@ -26,24 +26,30 @@ function checkInputs() {
     // if(fNameValue == "" || lNameValue == "" || phoneNumberValue == "") {
     //   setErrorFor(form, 'Please fill out all fields.')
     // } else {
-    //   setSuccessFor(form, "");
+    //   setSuccessFor(form, '');
     // }
 
     //First Name Validation
     if(fNameValue === "") {
         setErrorFor(fName, 'First name cannot be blank');
+    // } else if(/^[a-zA-Z]*$/.test(fNameValue)) {
+    //     setSuccessFor(fName);
+    //     form.reset();
     } else {
-        setSuccessFor(fName, 'Success fName');
-        console.log(fNameValue);
+        setSuccessFor(fName);
+        console.log(typeof(fNameValue), fNameValue);
         // form.reset();
     };
 
     //Last Name Validation
     if(lNameValue === "") {
         setErrorFor(lName, 'Last name cannot be blank');
+    // } else if(/^[a-zA-Z]*$/.test(lNameValue)) {
+    //   setSuccessFor(lName);
+    //   form.reset();
     } else {
-        setSuccessFor(lName, 'Success lName');
-        console.log(lNameValue);
+        setSuccessFor(lName);
+        console.log(typeof(lNameValue), lNameValue);
         // form.reset();
     };
 
@@ -55,8 +61,8 @@ function checkInputs() {
         setErrorFor(phoneNumber, 'Phone number is not valid');
         console.log(phoneNumberValue + " not valid");
     } else if (validatePhone(phoneNumberValue)) {
-        setSuccessFor(phoneNumber, 'Success Phone!');
-        console.log(phoneNumberValue);
+        setSuccessFor(phoneNumber);
+        console.log(typeof(phoneNumberValue), phoneNumberValue);
         // form.reset();
     };
 
@@ -74,17 +80,15 @@ function setErrorFor(input, message) {
 
 //display success message to user
 //GREEN added in CSS
-function setSuccessFor(input, message) {
+function setSuccessFor(input) {
     const formControl = input.parentElement;
     const small = formControl.querySelector('small');
-
-    //display success message user side
-    small.innerText = message;
 
     //add success class for styling in css
     formControl.className = 'form success';
 }
 
+//phone number regex
 function validatePhone(phoneNumber) {
     //regex
     return /^(?:\+?1[-. ]?)?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(phoneNumber);
