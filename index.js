@@ -1,3 +1,5 @@
+
+
 //Venus
 // Validate first / last name / nothings red but can not tell if works//;
 
@@ -22,7 +24,7 @@
               validateFirstName() && 
               validateLastName()
           )
-          const name =firstName.value;
+          var name =firstName.value;
           const container = document.querySelector("div.container");
           
       }
