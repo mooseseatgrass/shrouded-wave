@@ -39,7 +39,8 @@ function checkInputs() {
     } else if (onlyLetters(fNameValue)) {
         setSuccessFor(fName);
         let f = fNameValue.toLowerCase();
-        console.log(typeof(f), f);
+        const fCapitalized = f.charAt(0).toUpperCase() + f.slice(1);
+        console.log(typeof(fCapitalized), fCapitalized);
         form.reset();
     }
 
@@ -53,7 +54,8 @@ function checkInputs() {
     } else if (onlyLetters(lNameValue)) {
         setSuccessFor(lName);
         let l = lNameValue.toLowerCase();
-        console.log(typeof(l), l);
+        const lCapitalized = l.charAt(0).toUpperCase() + l.slice(1);
+        console.log(typeof(lCapitalized), lCapitalized);
         form.reset();
     }
 
