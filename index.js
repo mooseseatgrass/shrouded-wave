@@ -23,10 +23,10 @@ function checkInputs() {
 
     //this is something i'm playing with to make it so all fields must be filled out in order to submit the form.
     //require all fields to be filled out
-    // if(fNameValue == "" || lNameValue == "" || phoneNumberValue == "") {
+    // if(fNameValue == "" && lNameValue == "" && phoneNumberValue == "") {
     //   setErrorFor(form, 'Please fill out all fields.')
     // } else {
-    //   setSuccessFor(form, '');
+    //   setSuccessFor(form);
     // }
 
     //First Name Validation
