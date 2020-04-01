@@ -16,34 +16,24 @@ form.addEventListener('submit' , (e) => {
 //checkInputs function
 function checkInputs() {
 
+    //This part is NOT finished as I haven't fully figured out how to solve the problem.. I want to ensure that ALL 3 fields are completed before we parse any info to the DB.
+    // if (form.input == null || form.input == '') {
+    //     setErrorFor(form, "Please fill out all fields");
+    //     return false;
+    // }
+
     //trim spaces off front & end of input
     const fNameValue = fName.value.trim();
     const lNameValue = lName.value.trim();
     const phoneNumberValue = phoneNumber.value.trim();
 
-    //this is something i'm playing with to make it so all fields must be filled out in order to submit the form.
-    //require all fields to be filled out
-    const formValue = form.value;
-    if (formValue == '') {
-        setErrorFor(form, 'Please fill out all fields');
-    }
-    // $('form').submit(requireAll() {
-    // if(fNameValue == "" || lNameValue == "" || phoneNumberValue == "") {
-    //   setErrorFor(form, 'Please fill out all fields.');
-    // } else {
-    //   setSuccessFor(form);
-    // }}
-
     //First Name Validation
     if(fNameValue === "") {
         setErrorFor(fName, 'First name cannot be blank');
-        return false;
     } else if (fNameValue.length > 70) {
         setErrorFor(fName, 'Must be fewer than 70 characters');
-        return false;
     } else if (!onlyLetters(fNameValue)) {
         setErrorFor(fName, 'First name must contain only letters');
-        return false;
     } else if (onlyLetters(fNameValue)) {
         setSuccessFor(fName);
         let f = fNameValue.toLowerCase();
@@ -55,13 +45,10 @@ function checkInputs() {
     //Last Name Validation
     if(lNameValue === "") {
         setErrorFor(lName, 'Last name cannot be blank');
-        return false;
     } else if (lNameValue.length > 70) {
         setErrorFor(lName, 'Must be fewer than 70 characters');
-        return false;
     } else if (!onlyLetters(lNameValue)) {
         setErrorFor(lName, 'Last name must contain only letters');
-        return false;
     } else if (onlyLetters(lNameValue)) {
         setSuccessFor(lName);
         let l = lNameValue.toLowerCase();
@@ -70,14 +57,12 @@ function checkInputs() {
         form.reset();
     }
 
-
+    //Note: Wondering if I need to remove special characters from phone number input before sending to DB?
     //Phone # Validation Errors & Success
     if(phoneNumberValue === "") {
         setErrorFor(phoneNumber, 'Phone number cannot be blank');
-        return false;
     } else if (!validatePhone(phoneNumberValue)){
         setErrorFor(phoneNumber, 'Phone number is not valid');
-        return false;
     } else if (validatePhone(phoneNumberValue)) {
         setSuccessFor(phoneNumber);
         console.log(typeof(phoneNumberValue), phoneNumberValue);
@@ -105,14 +90,12 @@ function setSuccessFor(input) {
     formControl.className = 'form success';
 }
 
-//name can only contain letters, no other characters regex
+//function - name can only contain letters, no other characters regex
 function onlyLetters(x) {
   return /^[a-zA-Z]+$/.test(x);
   };
 
-//phone number formatting regex. accepts a wide variety
+//function - phone number formatting regex. accepts a wide variety
 function validatePhone(phoneNumber) {
     return /^(?:\+?1[-. ]?)?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(phoneNumber);
 }};
-
-//just leaving a note here for my commit
