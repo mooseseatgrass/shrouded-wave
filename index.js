@@ -100,3 +100,4 @@ function onlyLetters(x) {
 function validatePhone(phoneNumber) {
     return /^(?:\+?1[-. ]?)?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(phoneNumber);
 }};
+
