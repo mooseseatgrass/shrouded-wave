@@ -9,6 +9,7 @@ body {
     padding: 0;
     background-color: gray;
 }
+
 .box {
 width: 500px;
 position:absolute ;
@@ -27,23 +28,20 @@ font-size: 50px;
 	border-color: #777;
 }
 
- /* Input Messages */
+ /* User-side Messages */
 .form small {
-<<<<<<< HEAD
-	color: #000;
-	background-color: #efefef;
-=======
-	color: #e74c3c;
-	/* background-color: #efefef; */
->>>>>>> 7bf90aee791e15ca73e1733820db24e641f29e48
-	position: absolute;
+	color: 000;
+	bottom: 0;
+	left: 0;
 	visibility: hidden;
 }
 
 /* Error Message */
 .form.error small {
-	color: red;
-	background-color: efefef;
+	margin-left: 2em;
+	position: relative;
+	background-color: red;
+	color: white;
 	visibility: visible;
 }
 
@@ -53,8 +51,9 @@ font-size: 50px;
 
 /* Success Message */
 .form.success small {
-	color: #2ecc71;
-	background-color: #efefef;
+	margin-left: 2em;
+	background-color: #2ecc71;
+	color: white;
 	visibility: visible;
 }
 
@@ -62,3 +61,17 @@ font-size: 50px;
 	border-color: #2ecc71;
 }
 
+i {
+	visibility: hidden;
+	position: absolute;
+}
+
+.form.success i.fa-check-circle {
+	color: #2ecc71;
+	visibility: visible;
+}
+
+.form.error i.fa-exclamation-circle {
+	color: #e74c3c;
+	visibility: visible;
+}
