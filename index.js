@@ -1,105 +1,92 @@
-//Get form input from user/html
-const form = document.getElementById('form');
-const fName = document.getElementById('fname');
-const lName = document.getElementById('lname');
-const phoneNumber = document.getElementById('phonenumber');
-
-//Listen for Button to be submitted
-form.addEventListener('submit' , (e) => {
-    e.preventDefault();
-       
-    //Validate field input
-    checkInputs();
-
-});
-
-//checkInputs function
-function checkInputs() {
-
-    //trim spaces off front & end of input
-    const fNameValue = fName.value.trim();
-    const lNameValue = lName.value.trim();
-    const phoneNumberValue = phoneNumber.value.trim();
-
-    //this is something i'm playing with to make it so all fields must be filled out in order to submit the form.
-    //require all fields to be filled out
-    // if(fNameValue == "" && lNameValue == "" && phoneNumberValue == "") {
-    //   setErrorFor(form, 'Please fill out all fields.')
-    // } else {
-    //   setSuccessFor(form);
-    // }
-
-    //First Name Validation
-    if(fNameValue === "") {
-        setErrorFor(fName, 'First name cannot be blank');
-    } else if (fNameValue.length > 70) {
-        setErrorFor(fName, 'Must be fewer than 70 characters');
-    } else if (!onlyLetters(fNameValue)) {
-        setErrorFor(fName, 'First name must contain only letters');
-    } else if (onlyLetters(fNameValue)) {
-        setSuccessFor(fName);
-        let f = fNameValue.toLowerCase();
-        const fCapitalized = f.charAt(0).toUpperCase() + f.slice(1);
-        console.log(typeof(fCapitalized), fCapitalized);
-        form.reset();
+//Venus
+// Validate first / last name / nothings red but can not tell if works//;
+   //Input fields
+  const firstName = document.getElementById("firstName").value;
+  const lastName = document.getElementById("lastName").value;
+  const error_message = document.getElementById("error_message");
+   
+   //Form
+  const form = document.getElementById("form");
+   //Validation Colors (names)~would like to use for client side validation //
+   //const green = "green";
+   //const red = "red";
+   
+  form.addEventListener("submit"), function(event){
+     //prevent defauts
+    event.preventDefault();
+    if(
+      validateFirstName() && 
+      validateLastName()
+    )
+    const name =firstName.value;
+    const container = document.querySelector("div.container");
+     
+  }
+      //Validators
+    function validateFirstName(){
+     //check if empty//
+    if(checkIfEmpty(firstName)) return;
+     //check if only letters//
+    if(!checkIfOnlyLetters(firstName)) return;
+     //if only has letters
+    return true;
+    } 
+    function validateLastName(){
+      //check if empty//
+      if(checkIfEmpty(lastName)) return;
+      //check if only letters//
+      if(!checkIfOnlyLetters(lastName)) return;
+      //if only has letters
+      return true;  
     }
-
-    //Last Name Validation
-    if(lNameValue === "") {
-        setErrorFor(lName, 'Last name cannot be blank');
-    } else if (lNameValue.length > 70) {
-        setErrorFor(lName, 'Must be fewer than 70 characters');
-    } else if (!onlyLetters(lNameValue)) {
-        setErrorFor(lName, 'Last name must contain only letters');
-    } else if (onlyLetters(lNameValue)) {
-        setSuccessFor(lName);
-        let l = lNameValue.toLowerCase();
-        const lCapitalized = l.charAt(0).toUpperCase() + l.slice(1);
-        console.log(typeof(lCapitalized), lCapitalized);
-        form.reset();
+      //Utility Functions - used across multiple components 
+     //field invalid////else field valid//
+    function checkIfEmpty(field){
+    if(isEmpty(field.value.trim())) {
+       //set invalid 
+    setInvalid(field, `${field.name} can not be empty`);
+    return true;  
+     //set valid
+    } else {
+      setValid(field);
+      return false;
     }
-
-
-    //Phone # Validation Errors & Success
-    if(phoneNumberValue === "") {
-        setErrorFor(phoneNumber, 'Phone number cannot be blank');
-    } else if (!validatePhone(phoneNumberValue)){
-        setErrorFor(phoneNumber, 'Phone number is not valid');
-        console.log(phoneNumberValue + " not valid");
-    } else if (validatePhone(phoneNumberValue)) {
-        setSuccessFor(phoneNumber);
-        console.log(typeof(phoneNumberValue), phoneNumberValue);
-        form.reset();
+  }
+    function isEmpty(value){
+      if(value === '') return true;
+      return false;
     }
-
-//display error message in RED, icon to user
-function setErrorFor(input, message) {
-    const formControl = input.parentElement;
-    const small = formControl.querySelector('small');
-
-    //display error message user side
-    small.innerText = message;
-
-    //add error class to style message in css
-    formControl.className = 'form error';
-}
-
-//display success icon to user
-//GREEN added in CSS
-function setSuccessFor(input) {
-    const formControl = input.parentElement;
-
-    //add success class for styling in css
-    formControl.className = 'form success';
-}
-
-//name can only contain letters, no other characters regex
-function onlyLetters(x) {
-  return /^[a-zA-Z]+$/.test(x);
-  };
-
-//phone number formatting regex. accepts a wide variety
-function validatePhone(phoneNumber) {
-    return /^(?:\+?1[-. ]?)?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(phoneNumber);
-}};
+     
+    function setInvalid(field, message) {
+      field.className = 'invalid';
+      field.nextElementSibling.innerHTML = message;
+    // field.nextElementSibling.style.color = red; 
+  }
+    function setValid(field) {
+      field.className = 'valid';
+      field.nextElementSibling.innerHTML = '';
+    // field.nextElementSibling.style.color = green; //
+  }
+  function checkIfOnlyLettersNoSymbols(field) {
+    if(/^[a-zA-Z ]+$/.test(field.value)){
+      setValid(field);
+      return true;
+    } else {
+      setInvalid(field, `${field.name} only letters no symbols`);
+      return false;
+    }
+  }function lengthOfFirstName(field) {
+    if(firstname.length < 2) {
+    text = "Please Enter Valid First Name";
+    error_message.innerHTML = text;
+    return false;  
+  }
+  function lengthOfLastName(field) {
+    if(lastname.length < 2) {
+    text = "Please Enter Valid Last Name";
+    error_message.innerHTML = text;
+    return false;
+  }  
+  }
+//------------------------------
 
