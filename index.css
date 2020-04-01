@@ -54,7 +54,7 @@ font-size: 50px;
 	margin-left: 2em;
 	background-color: #2ecc71;
 	color: white;
-	visibility: visible;
+	visibility: hidden;
 }
 
 .form.success input{
@@ -67,11 +67,11 @@ i {
 }
 
 .form.success i.fa-check-circle {
-	color: #2ecc71;
+	color: rgb(35, 221, 35);
 	visibility: visible;
 }
 
 .form.error i.fa-exclamation-circle {
-	color: #e74c3c;
+	color: rgb(255, 64, 64);
 	visibility: visible;
 }

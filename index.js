@@ -32,26 +32,30 @@ function checkInputs() {
     //First Name Validation
     if(fNameValue === "") {
         setErrorFor(fName, 'First name cannot be blank');
-    // } else if(/^[a-zA-Z]*$/.test(fNameValue)) {
-    //     setSuccessFor(fName);
-    //     form.reset();
-    } else {
+    } else if (fNameValue.length > 70) {
+        setErrorFor(fName, 'Must be fewer than 70 characters');
+    } else if (!onlyLetters(fNameValue)) {
+        setErrorFor(fName, 'First name must contain only letters');
+    } else if (onlyLetters(fNameValue)) {
         setSuccessFor(fName);
-        console.log(typeof(fNameValue), fNameValue);
-        // form.reset();
-    };
+        let f = fNameValue.toLowerCase();
+        console.log(typeof(f), f);
+        form.reset();
+    }
 
     //Last Name Validation
     if(lNameValue === "") {
         setErrorFor(lName, 'Last name cannot be blank');
-    // } else if(/^[a-zA-Z]*$/.test(lNameValue)) {
-    //   setSuccessFor(lName);
-    //   form.reset();
-    } else {
+    } else if (lNameValue.length > 70) {
+        setErrorFor(lName, 'Must be fewer than 70 characters');
+    } else if (!onlyLetters(lNameValue)) {
+        setErrorFor(lName, 'Last name must contain only letters');
+    } else if (onlyLetters(lNameValue)) {
         setSuccessFor(lName);
-        console.log(typeof(lNameValue), lNameValue);
-        // form.reset();
-    };
+        let l = lNameValue.toLowerCase();
+        console.log(typeof(l), l);
+        form.reset();
+    }
 
 
     //Phone # Validation Errors & Success
@@ -63,10 +67,10 @@ function checkInputs() {
     } else if (validatePhone(phoneNumberValue)) {
         setSuccessFor(phoneNumber);
         console.log(typeof(phoneNumberValue), phoneNumberValue);
-        // form.reset();
-    };
+        form.reset();
+    }
 
-//display error message in RED to user
+//display error message in RED, icon to user
 function setErrorFor(input, message) {
     const formControl = input.parentElement;
     const small = formControl.querySelector('small');
@@ -78,18 +82,21 @@ function setErrorFor(input, message) {
     formControl.className = 'form error';
 }
 
-//display success message to user
+//display success icon to user
 //GREEN added in CSS
 function setSuccessFor(input) {
     const formControl = input.parentElement;
-    const small = formControl.querySelector('small');
 
     //add success class for styling in css
     formControl.className = 'form success';
 }
 
-//phone number regex
+//name can only contain letters, no other characters regex
+function onlyLetters(x) {
+  return /^[a-zA-Z]+$/.test(x);
+  };
+
+//phone number formatting regex. accepts a wide variety
 function validatePhone(phoneNumber) {
-    //regex
     return /^(?:\+?1[-. ]?)?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(phoneNumber);
 }};
