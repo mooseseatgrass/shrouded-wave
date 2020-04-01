@@ -9,7 +9,12 @@ body {
     padding: 0;
     background-color: gray;
 }
+<<<<<<< HEAD
 .container {
+=======
+
+.box {
+>>>>>>> c2e08c2c9d7e79f9a90352d52fd1bd0f2390b93a
 width: 500px;
 position:absolute ;
 top: 50%;
@@ -71,8 +76,12 @@ font-size: 50px;
     border: blue;
 }
 
-.form-control.error input {
-    border: red;
+/* Success Message */
+.form.success small {
+	margin-left: 2em;
+	background-color: #2ecc71;
+	color: white;
+	visibility: visible;
 }
 
 .form-control.success i.fa check-circle{
@@ -95,3 +104,17 @@ font-size: 50px;
 	border-color: #777;
 }
 
+i {
+	visibility: hidden;
+	position: absolute;
+}
+
+.form.success i.fa-check-circle {
+	color: #2ecc71;
+	visibility: visible;
+}
+
+.form.error i.fa-exclamation-circle {
+	color: #e74c3c;
+	visibility: visible;
+}
