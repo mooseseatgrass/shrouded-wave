@@ -36,50 +36,37 @@
 </div>       
   
 <div class="box">
-
 <div class="head">
-
-    <h2>Create Account</h2>
-</div>
-<form class="form" id="form">
-
-
-<div class="form-control success">
-<div class="form-control">   
-    <label>First Name:</label><br>
-    <input type="text" placeholder="Carlos" id="firstname" onfocusout="validateFirstName"><br><!-- user input name -->
-    <i class="fas fa-check-circle"></i>
-    <i class="fas fa-exclamation-circle"></i>
-    <small>Error message</small>
-</div>
-
-<div class="form-control">  
-    <label>Last Name:</label><br>
-    <input type="text" placeholder="Williams" id="lastname" onfocusout="validateLastName"><br><!-- user input name -->
-    <i class="fas fa-check-circle"></i>
-    <i class="fas fa-exclamation-circle"></i>
-    <small>Error message</small>
-</div>
-
-
-<div class="form-control error">
-<div class="form-control">
-    <label class="num">Number:</label><br><!-- user number required for login -->
-    <input type="text" placeholder="xxx-xxx-xxxx"  id="phonenumber"><br><br>
-    <i class="fas fa-check-circle"></i>
-    <i class="fas fa-exclamation-circle"></i>
-    <small>Error message</small>
-</div>
-</div>
-   
-    <!-- Submit Button -->
-    <button id="button">Submit</button>
-    <br><br>
-    
-</div>
-</form>
+  <form id="form">
+      <h2>Create Account</h2>
+        <small></small>
+        <br>
+          <div class="form-control">
+            <label class="name">First Name:</label><br>
+            <input type="text" placeholder="Jane" value="" id="fname">
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small></small>
+          </div>
+          <div class="form-control">
+            <label class="name">Last Name:</label><br>
+            <input type="text" placeholder="Doe" value="" id="lname">
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small></small>
+          </div>
+          <div class="form-control">
+            <label class="phone-number">Number:</label><br>
+              <input type="text" placeholder="xxx-xxx-xxxx" value="" id="phonenumber">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+              <small></small>
+          </div>
+        <br>
+      <button type="submit" id="submit">Submit</button>
+  </form>
 </div>       
-
+</div>
 
 <script src='admin.js'></script>
 <script src='validate.js'></script>
