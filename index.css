@@ -9,17 +9,118 @@ body {
     padding: 0;
     background-color: gray;
 }
-.box {
+
+.container {
+
 width: 500px;
 position:absolute ;
 top: 50%;
 left:50% ;
 transform: translate(-50%, -50%);
-color: white;
+color:black;
+font-size: 100%;
 }
 .box h2 {
 font-size: 50px;
 
+}
+
+.form{
+   padding: 30px 40px;
+}
+
+.form-control{
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.form-control label {
+    display: inline block;
+    margin-bottom: 5px;
+}
+
+.form-control input {
+    border: 2px solid gold;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+}
+.form-control i {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    visibility: hidden;
+}
+
+
+.form-control small {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.form button {
+    background-color:black;
+    border:2px solid black ;
+    color: white;
+    display: block;
+    font-size: 16px;
+    border-radius: 4px;
+
+ /* User-side Messages */
+.form small {
+	color: #000;
+	background-color: #efefef;
+	position: absolute;
+	color: 000;
+	bottom: 0;
+	left: 0;
+	visibility: hidden;
+}
+
+/* Error Message */
+.form.error small {
+	margin-left: 2em;
+	position: relative;
+	background-color: red;
+	color: white;
+	visibility: visible;
+
+}
+
+.form-control.success input{
+    border: blue;
+}
+
+
+.form-control.error input {
+    border: red;
+  
+/* Success Message */
+.form.success small {
+	margin-left: 2em;
+	background-color: #2ecc71;
+	color: white;
+	visibility: hidden;
+}
+
+.form-control.success i.fa check-circle{
+    color: blue;
+    visibility:visible;
+}
+
+.form-control.success i.fa exclamation-circle{
+    color: red;
+    visibility: visible;
+}
+
+.form.success input{
+	border-color: #2ecc71;
+.form-control.error small {
+    color: red;
+    visibility:visible;
 }
 
 .head input:focus {
@@ -27,32 +128,17 @@ font-size: 50px;
 	border-color: #777;
 }
 
- /* Input Messages */
-.form small {
-	color: #000;
-	background-color: #efefef;
-	position: absolute;
+i {
 	visibility: hidden;
+	position: absolute;
 }
 
-/* Error Message */
-.form.error small {
-	color: red;
-	background-color: efefef;
+.form.success i.fa-check-circle {
+	color: rgb(35, 221, 35);
 	visibility: visible;
 }
 
-.form.error input {
-	border-color: #e74c3c;
-}
-
-/* Success Message */
-.form.success small {
-	color: #2ecc71;
-	background-color: #efefef;
+.form.error i.fa-exclamation-circle {
+	color: rgb(255, 64, 64);
 	visibility: visible;
-}
-
-.form.success input{
-	border-color: #2ecc71;
 }
