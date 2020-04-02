@@ -10,11 +10,17 @@ body {
     background-color: gray;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .container {
 =======
 
 .box {
 >>>>>>> c2e08c2c9d7e79f9a90352d52fd1bd0f2390b93a
+=======
+
+.container {
+
+>>>>>>> 8936f3f3d46103fa8fc2e44a174871de2df24b0c
 width: 500px;
 position:absolute ;
 top: 50%;
@@ -57,11 +63,16 @@ font-size: 50px;
     visibility: hidden;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8936f3f3d46103fa8fc2e44a174871de2df24b0c
 .form-control small {
     position: absolute;
     bottom: 0;
     left: 0;
 }
+<<<<<<< HEAD
 
 .form button {
     background-color:black;
@@ -70,12 +81,46 @@ font-size: 50px;
     display: block;
     font-size: 16px;
     border-radius: 4px;
+=======
+
+.form button {
+    background-color:black;
+    border:2px solid black ;
+    color: white;
+    display: block;
+    font-size: 16px;
+    border-radius: 4px;
+
+ /* User-side Messages */
+.form small {
+	color: 000;
+	bottom: 0;
+	left: 0;
+	visibility: hidden;
+}
+
+/* Error Message */
+.form.error small {
+	margin-left: 2em;
+	position: relative;
+	background-color: red;
+	color: white;
+	visibility: visible;
+
+>>>>>>> 8936f3f3d46103fa8fc2e44a174871de2df24b0c
 }
 
 .form-control.success input{
     border: blue;
 }
 
+<<<<<<< HEAD
+=======
+
+.form-control.error input {
+    border: red;
+  
+>>>>>>> 8936f3f3d46103fa8fc2e44a174871de2df24b0c
 /* Success Message */
 .form.success small {
 	margin-left: 2em;
