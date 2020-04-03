@@ -1,3 +1,11 @@
+
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+
+
 const mysql = require('mysql');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -21,21 +29,33 @@ dBase.connect((err) => {
   console.log ('DB connection failed \n Error : ' + JSON.stringify(err, undefined, 2));
 });
 
-// -------------------------------------------------------------------
-// *CAN ONLY SHOW IN EITHER THE CLI OR BROWSER AT ONE TIME.*
-// Am working on getting it to do both at same time. I've seen it done
-// and actually have the code but will require a small re-write.
-// I first will add code for other CRUD commands.
-// -------------------------------------------------------------------
+// Add user:
+const fs = require('fs');
 
-// Add row to table:
+setTimeout(() => {
+	readline.question(`New user's First Name: `, (firstName) => {
+    fs.writeFileSync('firstName.txt', firstName);
+    readline.question(`New user's Last Name: `, (lastName) => {
+      fs.writeFileSync('lastName.txt', lastName);
+      readline.question(`New user's Phone Number: `, (phoneNumber) => {
+        fs.writeFileSync('phoneNumber.txt', phoneNumber);
+      console.log('files written')
+      // console.log(`Welcome, ${firstName} ${lastName}!`);
+      readline.close()
+      })
+    })
+  })},3000);
+// Execute userInfo.js to read and output the last files that were written
+
+
+// Add user info to table:
 app.get('/', (req, res) => {
-  let post = {First_Name:'Lil', Last_Name:'Wayne', Phone_Number:'706-555-3086'}; // Id_user set to Auto_Increment
+  let post = {First_Name : firstName, Last_Name : lastName, Phone_Number : phoneNumber}; // Id_user set to Auto_Increment
   let sql = 'INSERT INTO user SET ?';
   let query = dBase.query(sql, post, (err, result) => {
     if(err) throw err;
     console.log(result);
-    res.send('Post 1 added...');
+    res.send('UserIn');
   });
 });
 
@@ -58,22 +78,3 @@ app.get('/', (req, res) => {
 //   })
 // });
 
-
-// Show in browser:
-// 1. Must first comment out "show in CLI" code above.
-// 2. Run node admin.js in terminal.
-// 3. In browser enter  localhost:8080  and hit enter.
-// Show in browser:
-
-// app.get('/',(req,res) => {
-//   dBase.query('SELECT * FROM user',(err, rows, fields) => {
-//     if(!err)
-//     res.send(rows);
-//     else
-//     console.log(err);
-//   })
-// });
-
-
-// DO NOT ENABLE THIS OR WILL NOT WORK
-// dBase.end();
