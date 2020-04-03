@@ -1,8 +1,8 @@
 
-const readline = require('readline').createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
+// const readline = require('readline').createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// })
 
 
 
@@ -61,7 +61,7 @@ app.get('/', (req, res) => {
   let query = dBase.query(sql, post, (err, result) => {
     if(err) throw err;
     console.log(result);
-    res.send('UserIn');
+    res.send('User Inserted');
   });
 });
 
