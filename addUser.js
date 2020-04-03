@@ -38,34 +38,30 @@ dBase.connect((err) => {
 //       fs.writeFileSync('lastName.txt', lastName);
 //       readline.question(`New user's Phone Number: `, (phoneNumber) => {
 //         fs.writeFileSync('phoneNumber.txt', phoneNumber);
-//       console.log('Files written.');
+//       console.log('files written');
+//       // console.log(`Welcome, ${firstName} ${lastName}!`);
 //       readline.close();
+//       });
 //     });
-//   });
-// })},3000);
+//   })},3000);
 // // Execute userInfo.js to read and output the last files that were written
+
+
+// Add user info to table:
 
 const fs = require('fs');
 
 let firstName = fs.readFileSync('firstName.txt', 'utf8');
-// console.log(firstName);
 let lastName = fs.readFileSync('lastName.txt', 'utf8');
-// console.log(lastName);
 let phoneNumber = fs.readFileSync('phoneNumber.txt', 'utf8');
-// console.log(phoneNumber);
 
-// let firstName = 'Anderson';
-// let lastName = 'Cooper';
-// let phoneNumber = '360-360-0360';
-
-// Add user info to table:
 app.get('/', (req, res) => {
   let post = {First_Name : firstName, Last_Name : lastName, Phone_Number : phoneNumber}; // Id_user set to Auto_Increment
   let sql = 'INSERT INTO user SET ?';
   let query = dBase.query(sql, post, (err, result) => {
     if(err) throw err;
     console.log(result);
-    res.send('User added');
+    res.send('UserIn');
   });
 });
 
