@@ -21,7 +21,7 @@ function checkInputs() {
     //     setErrorFor(form, "Please fill out all fields");
     //     return false;
     // }
-
+    const fs = require('fs');
     //trim spaces off front & end of input
     const fNameValue = fName.value.trim();
     const lNameValue = lName.value.trim();

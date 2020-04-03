@@ -23,27 +23,18 @@ dBase.connect((err) => {
 });
 
 
-// Add user info to table:
-
-const fs = require('fs');
-
-let firstName = fs.readFileSync('firstName.txt', 'utf8');
-let lastName = fs.readFileSync('lastName.txt', 'utf8');
-let phoneNumber = fs.readFileSync('phoneNumber.txt', 'utf8');
-
 app.get('/', (req, res) => {
-  let post = {First_Name : firstName, Last_Name : lastName, Phone_Number : phoneNumber}; // Id_user set to Auto_Increment
-  let sql = 'INSERT INTO user SET ?';
-  let query = dBase.query(sql, post, (err, result) => {
+  let sql = 'DELETE FROM user WHERE Id_user = 8';
+  let query = dBase.query(sql, (err, result) => {
     if(err) throw err;
     console.log(result);
-    res.send('User Inserted');
+    res.send('User Removed');
   });
 });
 
 
 // Show in CLI:
-// 2. Run node addUser.js in terminal.
+// 2. Run node removeUser.js in terminal.
 // 3. In browser enter  localhost:8080  and hit enter.
 // 4. Return to terminal to see output in CLI.
 // 5. Will have to press Ctrl+C to end (for now).
@@ -58,3 +49,4 @@ app.get('/', (req, res) => {
 //     console.log(err);
 //   })
 // });
+
