@@ -1,18 +1,11 @@
 const mysql = require('mysql');
 const express = require('express');
-//express required as dependency in package.json but does not seem to be installed in the node_modules folder.
 const bodyParser = require('body-parser');
-//body-parser required as dependency in package.json but does not seem to be installed in the node_modules folder.
 const app = express();
-// const port = 3306;
-// app.listen(port, () => console.log(`Express server is running on port ${port}`));
+const port = 8080;
+app.listen(port, () => console.log(`Express server is running on port ${port}`));
 
 app.use(bodyParser.json());
-
-// host : 'mysql://jgy4kfpqhzeplmwl:nal168vbk5cgeq50@mgs0iaapcj3p9srz.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/b0j93g47mct78nva',
-// user : 'jgy4kfpqhzeplmwl',
-// password : 'nal168vbk5cgeq50',
-// database : 'b0j93g47mct78nva'
 
 var mysqlConnection = mysql.createConnection({
     host : 'mgs0iaapcj3p9srz.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
@@ -28,21 +21,38 @@ mysqlConnection.connect((err) => {
   console.log ('DB connection failed \n Error : ' + JSON.stringify(err, undefined, 2));
 });
 
+// -------------------------------------------------------------------
+// *CAN ONLY SHOW IN EITHER THE CLI OR BROWSER AT ONE TIME.*
+// Am working on getting it to do both at same time. I've seen it done
+// and actually have the code but will require a small re-write.
+// I first will add code for other CRUD commands.
+// -------------------------------------------------------------------
+
 // Show in CLI:
-app.get('/b0j93g47mct78nva',(res,req) => {
+// 1. Must first comment out "Show in browser" code below.
+// 2. Run node admin.js in terminal.
+// 3. In browser enter  localhost:8080  and hit enter.
+// 4. Return to terminal to see output in CLI.
+// 5. Will have to press Ctrl+C to end (for now).
+// Show in CLI:
+
+app.get('/',(res,req) => {
   mysqlConnection.query('SELECT * FROM user',(err, rows, fields) => {
     if(!err)
     // Show entire table:
     console.log(rows);
-    // OR show first employee ID:
-    // console.log(rows[0].EmpID);
     else
     console.log(err);
   })
-}); 
+});
 
-// // Show in browser:
-// app.get('/b0j93g47mct78nva',(req,res) => {
+// Show in browser:
+// 1. Must first comment out "show in CLI" code above.
+// 2. Run node admin.js in terminal.
+// 3. In browser enter  localhost:8080  and hit enter.
+// Show in browser:
+
+// app.get('/',(req,res) => {
 //   mysqlConnection.query('SELECT * FROM user',(err, rows, fields) => {
 //     if(!err)
 //     res.send(rows);
@@ -51,4 +61,6 @@ app.get('/b0j93g47mct78nva',(res,req) => {
 //   })
 // });
 
+
+// DO NOT ENABLE THIS OR WILL NOT WORK
 // mysqlConnection.end();
