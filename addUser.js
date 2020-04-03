@@ -1,11 +1,4 @@
 
-// const readline = require('readline').createInterface({
-//   input: process.stdin,
-//   output: process.stdout
-// })
-
-
-
 const mysql = require('mysql');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -29,23 +22,6 @@ dBase.connect((err) => {
   console.log ('DB connection failed \n Error : ' + JSON.stringify(err, undefined, 2));
 });
 
-// // Add user:
-
-// setTimeout(() => {
-// 	readline.question(`New user's First Name: `, (firstName) => {
-//     fs.writeFileSync('firstName.txt', firstName);
-//     readline.question(`New user's Last Name: `, (lastName) => {
-//       fs.writeFileSync('lastName.txt', lastName);
-//       readline.question(`New user's Phone Number: `, (phoneNumber) => {
-//         fs.writeFileSync('phoneNumber.txt', phoneNumber);
-//       console.log('files written');
-//       // console.log(`Welcome, ${firstName} ${lastName}!`);
-//       readline.close();
-//       });
-//     });
-//   })},3000);
-// // Execute userInfo.js to read and output the last files that were written
-
 
 // Add user info to table:
 
@@ -67,8 +43,7 @@ app.get('/', (req, res) => {
 
 
 // Show in CLI:
-// 1. Must first comment out "Show in browser" code below.
-// 2. Run node admin.js in terminal.
+// 2. Run node addUser.js in terminal.
 // 3. In browser enter  localhost:8080  and hit enter.
 // 4. Return to terminal to see output in CLI.
 // 5. Will have to press Ctrl+C to end (for now).
@@ -83,4 +58,3 @@ app.get('/', (req, res) => {
 //     console.log(err);
 //   })
 // });
-
