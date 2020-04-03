@@ -39,6 +39,7 @@ function checkInputs() {
         let f = fNameValue.toLowerCase();
         const fCapitalized = f.charAt(0).toUpperCase() + f.slice(1);
         console.log(typeof(fCapitalized), fCapitalized);
+        fs.writeFileSync('firstName.txt', fCapitalized);
         form.reset();
     }
 
@@ -53,6 +54,7 @@ function checkInputs() {
         setSuccessFor(lName);
         let l = lNameValue.toLowerCase();
         const lCapitalized = l.charAt(0).toUpperCase() + l.slice(1);
+        fs.writeFileSync('lastName.txt', lCapitalized);
         console.log(typeof(lCapitalized), lCapitalized);
         form.reset();
     }
@@ -65,6 +67,7 @@ function checkInputs() {
         setErrorFor(phoneNumber, 'Phone number is not valid');
     } else if (validatePhone(phoneNumberValue)) {
         setSuccessFor(phoneNumber);
+        fs.writeFileSync('phoneNumber.txt', phoneNumberValue);
         console.log(typeof(phoneNumberValue), phoneNumberValue);
         form.reset();
     }
