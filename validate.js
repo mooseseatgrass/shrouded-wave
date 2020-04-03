@@ -7,7 +7,7 @@ const phoneNumber = document.getElementById('phonenumber');
 //Listen for Button to be submitted
 form.addEventListener('submit' , (e) => {
     e.preventDefault();
-       
+
     //Validate field input
     checkInputs();
 
@@ -17,11 +17,8 @@ form.addEventListener('submit' , (e) => {
 function checkInputs() {
 
     //This part is NOT finished as I haven't fully figured out how to solve the problem.. I want to ensure that ALL 3 fields are completed before we parse any info to the DB.
-    // if (form.input == null || form.input == '') {
-    //     setErrorFor(form, "Please fill out all fields");
-    //     return false;
-    // }
-
+  
+    
     //trim spaces off front & end of input
     const fNameValue = fName.value.trim();
     const lNameValue = lName.value.trim();
